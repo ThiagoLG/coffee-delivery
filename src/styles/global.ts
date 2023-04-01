@@ -9,12 +9,13 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  background: #f0f0f5;
+  background: ${(props) => props.theme["background"]};
   -webkit-font-smoothing: antialiased;
 }
 
 body,input,button {
   font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 1rem;
 }
 
