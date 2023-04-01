@@ -1,9 +1,9 @@
 export const defaultTheme = {
   'yellow-dark': '#C47F17',
-  'yellow': '#DBAC2C',
+  yellow: '#DBAC2C',
   'yellow-light': '#F1E9C9',
   'purple-dark': '#4B2995',
-  'purple': '#8047F8',
+  purple: '#8047F8',
   'purple-light': '#EBE5F9',
 
   'gray-100': '#F3F3F2',
@@ -15,6 +15,6 @@ export const defaultTheme = {
   'gray-700': '#403937',
   'gray-800': '#272221',
 
-  'white': '#FFFFFF',
-  'background': '#FAFAFA',
+  white: '#FFFFFF',
+  background: '#FAFAFA',
 }

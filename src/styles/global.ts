@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  background: ${(props) => props.theme["background"]};
+  background: ${(props) => props.theme.background};
   -webkit-font-smoothing: antialiased;
 }
 

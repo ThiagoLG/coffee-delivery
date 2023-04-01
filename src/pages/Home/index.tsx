@@ -1,9 +1,5 @@
-import { HomeContainer } from "./styles";
+import { HomeContainer } from './styles'
 
 export function Home() {
-  return (
-    <HomeContainer>
-      Home Page
-    </HomeContainer>
-  )
+  return <HomeContainer>Home Page</HomeContainer>
 }
