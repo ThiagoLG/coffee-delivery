@@ -2,20 +2,24 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.main`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    'text image'
+    'topics image';
+  column-gap: 3rem;
   padding-top: 5.875rem;
 `
 
 export const HomeTextSection = styled.section`
-  grid-area: 1 / 1 / 2 / 3;
-  display: grid;
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 
   .principalText {
     font-family: 'Baloo 2', 'sans-serif';
     font-size: 3rem;
     line-height: 130%;
+    font-weight: 800;
     color: ${({ theme }) => theme['gray-800']};
   }
 
@@ -28,13 +32,15 @@ export const HomeTextSection = styled.section`
 `
 
 export const HomeTopics = styled.section`
-  grid-area: 2 / 1 / 3 / 3;
-  margin-top: 4rem;
+  grid-area: topics;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1.25rem;
+  margin-top: auto;
+  padding: 1rem 0;
 `
 
-export const HomeTopicItem = styled.section``
-
 export const HomePrincipalImage = styled.img`
-  grid-area: 1 / 3/ 3 / 5;
+  grid-area: image;
   margin-left: auto;
 `

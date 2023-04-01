@@ -2,10 +2,12 @@ import {
   HomeContainer,
   HomePrincipalImage,
   HomeTextSection,
-  HomeTopicItem,
   HomeTopics,
 } from './styles'
 import HomeYellowCoffee from '../../assets/home_yellow_coffee.svg'
+import { TopicBackdrop, TopicContainer } from '../../components/Topics/styles'
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import { defaultTheme } from '../../styles/themes/default'
 
 export function Home() {
   return (
@@ -19,12 +21,37 @@ export function Home() {
           hora
         </span>
       </HomeTextSection>
+
       <HomeTopics>
-        <HomeTopicItem>Compre simples e seguro</HomeTopicItem>
-        <HomeTopicItem>Entrega rápida e rastreada</HomeTopicItem>
-        <HomeTopicItem>O café chega fresquinho até você</HomeTopicItem>
-        <HomeTopicItem>Embalagem mantém o café intacto</HomeTopicItem>
+        <TopicContainer>
+          <TopicBackdrop backdropColor={defaultTheme['yellow-dark']}>
+            <ShoppingCart size={16} weight="fill" />
+          </TopicBackdrop>
+          <span>Compra simples e segura</span>
+        </TopicContainer>
+
+        <TopicContainer>
+          <TopicBackdrop backdropColor={defaultTheme['gray-600']}>
+            <Package size={16} weight="fill" />
+          </TopicBackdrop>
+          <span>Embalagem mantém o café intacto</span>
+        </TopicContainer>
+
+        <TopicContainer>
+          <TopicBackdrop backdropColor={defaultTheme.yellow}>
+            <Timer size={16} weight="fill" />
+          </TopicBackdrop>
+          <span>Entrega rápida e rastreada</span>
+        </TopicContainer>
+
+        <TopicContainer>
+          <TopicBackdrop backdropColor={defaultTheme.purple}>
+            <Coffee size={16} weight="fill" />
+          </TopicBackdrop>
+          <span>O café chega fresquinho até você</span>
+        </TopicContainer>
       </HomeTopics>
+
       <HomePrincipalImage src={HomeYellowCoffee} />
     </HomeContainer>
   )
