@@ -4,7 +4,8 @@ export const HomeContainer = styled.main`
   display: grid;
   grid-template-areas:
     'text image'
-    'topics image';
+    'topics image'
+    'catalog catalog';
   column-gap: 3rem;
   padding-top: 5.875rem;
 `
@@ -43,4 +44,8 @@ export const HomeTopics = styled.section`
 export const HomePrincipalImage = styled.img`
   grid-area: image;
   margin-left: auto;
+`
+export const ProductsCatalog = styled.section`
+  display: grid;
+  grid-area: catalog;
 `

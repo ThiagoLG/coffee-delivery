@@ -3,11 +3,14 @@ import {
   HomePrincipalImage,
   HomeTextSection,
   HomeTopics,
+  ProductsCatalog,
 } from './styles'
 import HomeYellowCoffee from '../../assets/home_yellow_coffee.svg'
 import { TopicBackdrop, TopicContainer } from '../../components/Topics/styles'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
+import { Product } from './Product'
+import drinkAmericanCoffee from '../../assets/drinks/drink_american_coffee.svg'
 
 export function Home() {
   return (
@@ -52,6 +55,18 @@ export function Home() {
         </TopicContainer>
       </HomeTopics>
 
+      <h3>Nossos Cafés</h3>
+
+      <ProductsCatalog>
+        <Product
+          name="Café com leite"
+          description="O café chega fresquinho até você"
+          price={10}
+          availableAmount={20}
+          image={drinkAmericanCoffee}
+          categories={['Bebidas', 'Lanches']}
+        />
+      </ProductsCatalog>
       <HomePrincipalImage src={HomeYellowCoffee} />
     </HomeContainer>
   )
