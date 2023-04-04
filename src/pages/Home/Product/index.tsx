@@ -1,17 +1,10 @@
+import { IProduct } from '../../../models/IProduct'
 import { ProductContainer } from './styles'
 
-interface ProductProps {
-  name: string
-  description: string
-  categories: string[]
-  price: number
-  availableAmount: number
-  image: string
-}
-export function Product(product: ProductProps) {
+export function Product(product: IProduct) {
   return (
     <ProductContainer>
-      <img src={product.image} alt="" />
+      <img src={product.imageUrl} alt="" />
       <span>{product.categories.join(', ')}</span>
       <span>{product.name}</span>
       <span>{product.description}</span>

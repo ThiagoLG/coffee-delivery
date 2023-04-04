@@ -10,9 +10,23 @@ import { TopicBackdrop, TopicContainer } from '../../components/Topics/styles'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
 import { Product } from './Product'
-import drinkAmericanCoffee from '../../assets/drinks/drink_american_coffee.svg'
+import axios from 'axios'
+import { IProduct } from '../../models/IProduct'
+import { useEffect, useState } from 'react'
 
 export function Home() {
+  const [products, setProducts] = useState<IProduct[]>([])
+
+  const getProducts = async () => {
+    const productsData = await axios.get('/data/products.json')
+    setProducts(productsData?.data?.data || [])
+    console.log('products: ', products)
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
   return (
     <HomeContainer>
       <HomeTextSection>
@@ -58,14 +72,9 @@ export function Home() {
       <h3>Nossos Cafés</h3>
 
       <ProductsCatalog>
-        <Product
-          name="Café com leite"
-          description="O café chega fresquinho até você"
-          price={10}
-          availableAmount={20}
-          image={drinkAmericanCoffee}
-          categories={['Bebidas', 'Lanches']}
-        />
+        {products.map((product) => (
+          <Product key={product.id} {...product} />
+        ))}
       </ProductsCatalog>
       <HomePrincipalImage src={HomeYellowCoffee} />
     </HomeContainer>
