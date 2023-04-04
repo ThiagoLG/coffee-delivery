@@ -1,0 +1,130 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Expresso Tradicional",
+      "categories": ["Tradicional"],
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990,
+      "imageUrl": "/drinks/drink_expresso.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 2,
+      "name": "Expresso Americano",
+      "categories": ["Tradicional"],
+      "description": "Expresso diluído, menos intenso que o tradicional",
+      "price": 990,
+      "imageUrl": "/drinks/drink_american_coffee.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 3,
+      "name": "Expresso Cremoso",
+      "categories": ["Tradicional"],
+      "description": "Café expresso tradicional com espuma cremosa",
+      "price": 990,
+      "imageUrl": "/drinks/drink_creamy_espresso.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 4,
+      "name": "Expresso Gelado",
+      "categories": ["Tradicional", "Gelado"],
+      "description": "Bebida preparada com café expresso e cubos de gelo",
+      "price": 990,
+      "imageUrl": "/drinks/drink_iced_coffee.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 5,
+      "name": "Café com Leite",
+      "categories": ["Tradicional", "Com Leite"],
+      "description": "Meio a meio de expresso tradicional com leite vaporizado",
+      "price": 990,
+      "imageUrl": "/drinks/drink_coffee_with_milk.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 6,
+      "name": "Latte",
+      "categories": ["Tradicional", "Com Leite"],
+      "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+      "price": 990,
+      "imageUrl": "/drinks/drink_latte.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 7,
+      "name": "Capuccino",
+      "categories": ["Tradicional", "Com Leite"],
+      "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
+      "price": 990,
+      "imageUrl": "/drinks/drink_capuccino.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 8,
+      "name": "Macchiato",
+      "categories": ["Tradicional", "Com Leite"],
+      "description": "Café expresso misturado com um pouco de leite quente e espuma",
+      "price": 990,
+      "imageUrl": "/drinks/drink_macchiato.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 9,
+      "name": "Mocaccino",
+      "categories": ["Tradicional", "Com Leite"],
+      "description": "Café expresso com calda de chocolate, pouco leite e espuma",
+      "price": 990,
+      "imageUrl": "/drinks/drink_mocaccino.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 10,
+      "name": "Chocolate Quente",
+      "categories": ["Especial", "Com Leite"],
+      "description": "Bebida feita com chocolate dissolvido no leite quente e café",
+      "price": 990,
+      "imageUrl": "/drinks/drink_hot_chocolate.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 11,
+      "name": "Cubano",
+      "categories": ["Especial", "Alcóolico", "Com Leite"],
+      "description": "Drink gelado com rum, creme de leite e hortelã",
+      "price": 990,
+      "imageUrl": "/drinks/drink_cuban_coffee.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 12,
+      "name": "Havaiano",
+      "categories": ["Especial"],
+      "description": "Bebida adocicada preparada com café e leite de coco",
+      "price": 990,
+      "imageUrl": "/drinks/drink_hawaian_coffee.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 13,
+      "name": "Árabe",
+      "categories": ["Especial"],
+      "description": "Bebida preparada com grãos de café árabe e especiarias",
+      "price": 990,
+      "imageUrl": "/drinks/drink_arabic_coffee.svg",
+      "availableAmount": 50
+    },
+    {
+      "id": 14,
+      "name": "Irlandês",
+      "categories": ["Especial", "Alcóolico"],
+      "description": "Bebida a base de café, uísque irlandês, açucar e chantilly",
+      "price": 990,
+      "imageUrl": "/drinks/drink_irish_coffee.svg",
+      "availableAmount": 50
+    }
+  ]
+}
