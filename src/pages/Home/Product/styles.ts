@@ -18,3 +18,11 @@ export const ProductContainer = styled.section`
   .title {
   }
 `
+export const ProductTag = styled.span`
+  color: ${(prop) => prop.theme['yellow-dark']};
+  background-color: ${(prop) => prop.theme['yellow-light']};
+  font-weight: 700;
+  line-height: 130%;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+`
