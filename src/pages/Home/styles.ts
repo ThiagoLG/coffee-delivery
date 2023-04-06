@@ -47,5 +47,7 @@ export const HomePrincipalImage = styled.img`
 `
 export const ProductsCatalog = styled.section`
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem 2rem;
   grid-area: catalog;
 `
