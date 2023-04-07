@@ -1,6 +1,12 @@
-import { createContext, ReactNode } from 'react'
+import { createContext, ReactNode, useReducer } from 'react'
+import { ICartItem } from '../models/ICartItem'
+import { insertProductAction } from '../reducers/cart/actions'
+import { cartReducer } from '../reducers/cart/reducer'
 
-interface CartContextType {}
+interface CartContextType {
+  cartItems: ICartItem[]
+  addProductsToCart: (cartItem: ICartItem) => void
+}
 interface CartContextProviderProps {
   children: ReactNode
 }
@@ -8,5 +14,21 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextType)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  return <CartContextProvider>{children}</CartContextProvider>
+  const [cartState, dispatch] = useReducer(cartReducer, { cartItems: [] })
+  const { cartItems } = cartState
+
+  function addProductsToCart(cartItem: ICartItem) {
+    dispatch(insertProductAction(cartItem))
+  }
+
+  return (
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addProductsToCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  )
 }
