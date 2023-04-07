@@ -1,7 +1,11 @@
+import { ShoppingCartSimple } from 'phosphor-react'
+import { useState } from 'react'
 import { IProduct } from '../../../models/IProduct'
 import { ProductBuyContainer, ProductContainer, ProductTag } from './styles'
 
 export function Product(product: IProduct) {
+  const [amountToBuy, setAmountToBuy] = useState<number>(1)
+
   function formatCurrency(price: number) {
     if (!price || price <= 0) return 'R$ 0,00'
     return (price / 100).toLocaleString('pt-BR', {
@@ -31,10 +35,12 @@ export function Product(product: IProduct) {
         </section>
         <section className="buyContainer">
           <button>-</button>
-          <input type="number" />
+          <input type="number" value={amountToBuy} />
           <button>+</button>
         </section>
-        <button></button>
+        <button className="cartButton">
+          <ShoppingCartSimple size={22} color="white" weight="fill" />
+        </button>
       </ProductBuyContainer>
     </ProductContainer>
   )

@@ -20,6 +20,7 @@ export const ProductContainer = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: 0.25rem;
     margin-top: 1rem;
     margin-bottom: 1.25rem;
   }
@@ -40,6 +41,16 @@ export const ProductContainer = styled.section`
     text-align: center;
     color: ${(props) => props.theme['gray-500']};
     margin-top: 0.5rem;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number']::-moz-up-button,
+  input[type='number']::-moz-down-button {
+    display: none;
   }
 `
 export const ProductTag = styled.span`
@@ -79,5 +90,43 @@ export const ProductBuyContainer = styled.section`
   }
 
   .buyContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: ${({ theme }) => theme['gray-300']};
+    border-radius: 6px;
+    padding: 0.53rem 0.75rem;
+    width: 4.5rem;
+
+    font-family: monospace;
+
+    input {
+      font-size: 1rem;
+      text-align: center;
+      color: ${(props) => props.theme['gray-800']};
+      width: 1.25rem;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+    }
+    button {
+      color: ${(props) => props.theme.purple};
+      border: 0;
+      background-color: transparent;
+      font-size: 1.125rem;
+      width: 0.75rem;
+    }
+  }
+
+  .cartButton {
+    padding: 0.5rem;
+    background-color: ${(props) => props.theme['purple-dark']};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 6px;
+    border: 0;
   }
 `
