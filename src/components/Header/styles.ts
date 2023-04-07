@@ -5,6 +5,9 @@ export const HeaderContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
+  position: sticky;
+  top: 0;
+  background-color: ${(props) => props.theme.background};
 `
 
 export const HeaderRegion = styled.section`
@@ -34,4 +37,23 @@ export const HeaderLocation = styled(BaseHeaderButton)`
 
 export const HeaderCart = styled(BaseHeaderButton)`
   background-color: ${(props) => props.theme['yellow-light']};
+  position: relative;
+
+  div {
+    position: absolute;
+    border: 0;
+    background: ${(props) => props.theme['gray-800']};
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid black;
+    right: -25%;
+    bottom: -10%;
+    font-size: 12px;
+  }
 `
