@@ -1,10 +1,13 @@
 import { ShoppingCartSimple } from 'phosphor-react'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
+import { CartContext } from '../../../contexts/CartContext'
+import { ICartItem } from '../../../models/ICartItem'
 import { IProduct } from '../../../models/IProduct'
 import { ProductBuyContainer, ProductContainer, ProductTag } from './styles'
 
 export function Product(product: IProduct) {
   const [amountToBuy, setAmountToBuy] = useState<number>(1)
+  const { cartItems, addProductsToCart } = useContext(CartContext)
 
   function formatCurrency(price: number) {
     if (!price || price <= 0) return 'R$ 0,00'
@@ -26,6 +29,17 @@ export function Product(product: IProduct) {
   function decreaseAmount() {
     if (amountToBuy > 1) setAmountToBuy((value) => value - 1)
   }
+
+  function handleAddToCart() {
+    const cartItem: ICartItem = {
+      product,
+      amount: amountToBuy,
+      totalPrice: (amountToBuy * product.price) / 100,
+    }
+    addProductsToCart(cartItem)
+  }
+
+  // console.log('itens do carrinho', cartItems)
 
   return (
     <ProductContainer>
@@ -56,7 +70,7 @@ export function Product(product: IProduct) {
           />
           <button onClick={increaseAmount}>+</button>
         </section>
-        <button className="cartButton">
+        <button className="cartButton" onClick={handleAddToCart}>
           <ShoppingCartSimple size={22} color="white" weight="fill" />
         </button>
       </ProductBuyContainer>
