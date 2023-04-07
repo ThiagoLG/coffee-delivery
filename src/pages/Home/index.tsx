@@ -21,7 +21,6 @@ export function Home() {
   const getProducts = async () => {
     const productsData = await axios.get('/data/products.json')
     setProducts(productsData?.data?.data || [])
-    console.log('products: ', products)
   }
 
   useEffect(() => {
