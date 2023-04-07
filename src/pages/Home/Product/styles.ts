@@ -116,6 +116,7 @@ export const ProductBuyContainer = styled.section`
       background-color: transparent;
       font-size: 1.125rem;
       width: 0.75rem;
+      letter-spacing: -1px;
     }
   }
 

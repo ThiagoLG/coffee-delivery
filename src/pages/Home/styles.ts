@@ -1,13 +1,26 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .titleText {
+    font-family: 'Baloo 2', 'sans-serif';
+    font-weight: 800;
+    font-size: 2rem;
+    color: ${(props) => props.theme['gray-700']};
+  }
+`
+
+export const HomeInfosSection = styled.section`
   display: grid;
   grid-template-areas:
     'text image'
     'topics image'
     'catalog catalog';
   column-gap: 3rem;
-  padding-top: 5.875rem;
+  padding: 5.75rem 0;
 `
 
 export const HomeTextSection = styled.section`

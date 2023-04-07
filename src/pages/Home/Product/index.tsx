@@ -1,5 +1,5 @@
 import { ShoppingCartSimple } from 'phosphor-react'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { IProduct } from '../../../models/IProduct'
 import { ProductBuyContainer, ProductContainer, ProductTag } from './styles'
 
@@ -12,6 +12,19 @@ export function Product(product: IProduct) {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     })
+  }
+
+  function handleChangeProductAmount(e: ChangeEvent<HTMLInputElement>) {
+    const receivedValue = e.target.valueAsNumber
+    setAmountToBuy(receivedValue > 99 ? 99 : receivedValue)
+  }
+
+  function increaseAmount() {
+    if (amountToBuy < 99) setAmountToBuy((value) => value + 1)
+  }
+
+  function decreaseAmount() {
+    if (amountToBuy > 1) setAmountToBuy((value) => value - 1)
   }
 
   return (
@@ -34,9 +47,14 @@ export function Product(product: IProduct) {
           <span className="priceValue">{formatCurrency(product.price)}</span>
         </section>
         <section className="buyContainer">
-          <button>-</button>
-          <input type="number" value={amountToBuy} />
-          <button>+</button>
+          <button onClick={decreaseAmount}>--</button>
+          <input
+            type="number"
+            value={amountToBuy}
+            onChange={handleChangeProductAmount}
+            required
+          />
+          <button onClick={increaseAmount}>+</button>
         </section>
         <button className="cartButton">
           <ShoppingCartSimple size={22} color="white" weight="fill" />

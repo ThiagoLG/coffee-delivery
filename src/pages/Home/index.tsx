@@ -1,5 +1,6 @@
 import {
   HomeContainer,
+  HomeInfosSection,
   HomePrincipalImage,
   HomeTextSection,
   HomeTopics,
@@ -29,54 +30,57 @@ export function Home() {
 
   return (
     <HomeContainer>
-      <HomeTextSection>
-        <span className="principalText">
-          Encontre o café perfeito para qualquer hora do dia
-        </span>
-        <span className="secondaryText">
-          Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
-          hora
-        </span>
-      </HomeTextSection>
+      <HomeInfosSection>
+        <HomeTextSection>
+          <span className="principalText">
+            Encontre o café perfeito para qualquer hora do dia
+          </span>
+          <span className="secondaryText">
+            Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
+            hora
+          </span>
+        </HomeTextSection>
 
-      <HomeTopics>
-        <TopicContainer>
-          <TopicBackdrop backdropColor={defaultTheme['yellow-dark']}>
-            <ShoppingCart size={16} weight="fill" />
-          </TopicBackdrop>
-          <span>Compra simples e segura</span>
-        </TopicContainer>
+        <HomeTopics>
+          <TopicContainer>
+            <TopicBackdrop backdropColor={defaultTheme['yellow-dark']}>
+              <ShoppingCart size={16} weight="fill" />
+            </TopicBackdrop>
+            <span>Compra simples e segura</span>
+          </TopicContainer>
 
-        <TopicContainer>
-          <TopicBackdrop backdropColor={defaultTheme['gray-600']}>
-            <Package size={16} weight="fill" />
-          </TopicBackdrop>
-          <span>Embalagem mantém o café intacto</span>
-        </TopicContainer>
+          <TopicContainer>
+            <TopicBackdrop backdropColor={defaultTheme['gray-600']}>
+              <Package size={16} weight="fill" />
+            </TopicBackdrop>
+            <span>Embalagem mantém o café intacto</span>
+          </TopicContainer>
 
-        <TopicContainer>
-          <TopicBackdrop backdropColor={defaultTheme.yellow}>
-            <Timer size={16} weight="fill" />
-          </TopicBackdrop>
-          <span>Entrega rápida e rastreada</span>
-        </TopicContainer>
+          <TopicContainer>
+            <TopicBackdrop backdropColor={defaultTheme.yellow}>
+              <Timer size={16} weight="fill" />
+            </TopicBackdrop>
+            <span>Entrega rápida e rastreada</span>
+          </TopicContainer>
 
-        <TopicContainer>
-          <TopicBackdrop backdropColor={defaultTheme.purple}>
-            <Coffee size={16} weight="fill" />
-          </TopicBackdrop>
-          <span>O café chega fresquinho até você</span>
-        </TopicContainer>
-      </HomeTopics>
+          <TopicContainer>
+            <TopicBackdrop backdropColor={defaultTheme.purple}>
+              <Coffee size={16} weight="fill" />
+            </TopicBackdrop>
+            <span>O café chega fresquinho até você</span>
+          </TopicContainer>
+        </HomeTopics>
 
-      <h3>Nossos Cafés</h3>
+        <HomePrincipalImage src={HomeYellowCoffee} />
+      </HomeInfosSection>
+
+      <span className="titleText">Nossos Cafés</span>
 
       <ProductsCatalog>
         {products.map((product) => (
           <Product key={product.id} {...product} />
         ))}
       </ProductsCatalog>
-      <HomePrincipalImage src={HomeYellowCoffee} />
     </HomeContainer>
   )
 }
