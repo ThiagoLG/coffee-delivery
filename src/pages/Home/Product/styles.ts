@@ -48,7 +48,7 @@ export const ProductContainer = styled.section`
 const BaseCardStyle = styled.section`
   border-radius: 0.375rem 2.25rem;
   background-color: ${({ theme }) => theme['gray-100']};
-  padding: 0 1.5rem 1.25rem 1.5rem;
+  padding: 0 1.25rem 1.25rem 1.25rem;
   backface-visibility: hidden;
   transition: ${cardTransitionTime};
 `
@@ -70,8 +70,8 @@ export const FrontProductCard = styled(BaseCardStyle)`
     display: flex;
     justify-content: center;
     gap: 0.25rem;
-    margin-top: 1rem;
-    margin-bottom: 1.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
   }
 
   .title {
@@ -127,7 +127,8 @@ export const ProductBuyContainer = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+  padding: 0 0.25rem;
 
   .priceContainer {
     display: flex;

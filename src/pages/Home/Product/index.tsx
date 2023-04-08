@@ -55,9 +55,13 @@ export function Product(product: IProduct) {
   return (
     <ProductContainer className={flippedCard ? 'flipped' : ''}>
       <FrontProductCard className="front">
-        <button className="flipCardButton" onClick={handleFlipCard}>
-          <Info size={32} color={defaultTheme['purple-dark']} />
-        </button>
+        {product.additionalInfos && product.additionalInfos.length ? (
+          <button className="flipCardButton" onClick={handleFlipCard}>
+            <Info size={32} color={defaultTheme['purple-dark']} />
+          </button>
+        ) : (
+          <></>
+        )}
         <img src={product.imageUrl} alt="Product image" />
 
         <div className="tagsContainer">
@@ -95,10 +99,15 @@ export function Product(product: IProduct) {
         <button className="flipCardButton" onClick={handleFlipCard}>
           <ArrowUUpLeft size={32} color={defaultTheme['purple-dark']} />
         </button>
-        <h4>Ingredientes da parada:</h4>
-        <p>Café</p>
-        <p>Leite</p>
-        <p>Canela</p>
+
+        <h4>Informações sobre o produto:</h4>
+        <ul>
+          {product.additionalInfos &&
+            product.additionalInfos.length &&
+            product.additionalInfos.map((info) => {
+              return <li key={info}>{info}</li>
+            })}
+        </ul>
       </BackProductCard>
     </ProductContainer>
   )
