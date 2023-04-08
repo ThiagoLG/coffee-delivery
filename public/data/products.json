@@ -8,7 +8,8 @@
       "price": 990,
       "imageUrl": "/drinks/drink_expresso.svg",
       "availableAmount": 50,
-      "additionalInfos": ["Informação 1", "Informação 2", "Informação 3"]
+      "additionalInfos": ["Informação 1", "Informação 2", "Informação 3"],
+      "discountPercent": 12
     },
     {
       "id": 2,

@@ -39,6 +39,13 @@ export function Product(product: IProduct) {
     if (amountToBuy > 1) setAmountToBuy((value) => value - 1)
   }
 
+  function calculateDiscountedPrice(price: number) {
+    if (!product.discountPercent) return formatCurrency(product.price)
+
+    const discountInCash = (product.discountPercent / 100) * product.price
+    return formatCurrency(product.price - discountInCash)
+  }
+
   function handleAddToCart() {
     const cartItem: ICartItem = {
       product,
@@ -75,9 +82,18 @@ export function Product(product: IProduct) {
         <span className="description">{product.description}</span>
 
         <ProductBuyContainer className="productBuyContainer">
+          {product.discountPercent ? (
+            <section className="discountValue">
+              R${formatCurrency(product.price)}
+            </section>
+          ) : (
+            <></>
+          )}
           <section className="priceContainer">
             <span className="pricePrefix">R$</span>
-            <span className="priceValue">{formatCurrency(product.price)}</span>
+            <span className="priceValue">
+              {calculateDiscountedPrice(product.price)}
+            </span>
           </section>
           <section className="buyContainer">
             <button onClick={decreaseAmount}>--</button>

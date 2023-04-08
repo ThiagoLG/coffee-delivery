@@ -7,4 +7,5 @@ export interface IProduct {
   imageUrl: string
   availableAmount: number
   additionalInfos: string[]
+  discountPercent: number
 }

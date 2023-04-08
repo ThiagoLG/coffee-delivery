@@ -129,6 +129,15 @@ export const ProductBuyContainer = styled.section`
   justify-content: space-between;
   margin-top: 2rem;
   padding: 0 0.25rem;
+  position: relative;
+
+  .discountValue {
+    position: absolute;
+    top: -0.5rem;
+    color: ${(props) => props.theme['gray-500']};
+    text-decoration: line-through;
+    font-size: 0.875rem;
+  }
 
   .priceContainer {
     display: flex;
