@@ -1,13 +1,62 @@
 import styled from 'styled-components'
+const cardTransitionTime = '200ms'
 
 export const ProductContainer = styled.section`
-  display: flex;
-  flex-direction: column;
+  perspective: 600px;
+  transform-style: preserve-3d;
+  transition: ${cardTransitionTime};
+  position: relative;
   width: 16rem;
   height: 19.375rem;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .front {
+    transform: rotateY(0deg);
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
+  &.flipped {
+    .front {
+      transform: rotateY(-180deg);
+    }
+    .back {
+      transform: rotateY(0deg);
+    }
+  }
+
+  .flipCardButton {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    /* background: ${(props) => props.theme.purple}; */
+    background-color: transparent;
+    border: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const BaseCardStyle = styled.section`
   border-radius: 0.375rem 2.25rem;
   background-color: ${({ theme }) => theme['gray-100']};
   padding: 0 1.5rem 1.25rem 1.5rem;
+  backface-visibility: hidden;
+  transition: ${cardTransitionTime};
+`
+
+export const FrontProductCard = styled(BaseCardStyle)`
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(0deg);
 
   img {
     width: 7.5rem;
@@ -53,6 +102,15 @@ export const ProductContainer = styled.section`
     display: none;
   }
 `
+
+export const BackProductCard = styled(BaseCardStyle)`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 3rem;
+`
+
 export const ProductTag = styled.span`
   color: ${(prop) => prop.theme['yellow-dark']};
   background-color: ${(prop) => prop.theme['yellow-light']};
@@ -69,6 +127,7 @@ export const ProductBuyContainer = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 1.5rem;
 
   .priceContainer {
     display: flex;

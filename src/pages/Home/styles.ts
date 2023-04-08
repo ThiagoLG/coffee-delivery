@@ -4,6 +4,7 @@ export const HomeContainer = styled.main`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  padding-bottom: 5rem;
 
   .titleText {
     font-family: 'Baloo 2', 'sans-serif';

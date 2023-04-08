@@ -8,6 +8,7 @@ export const HeaderContainer = styled.nav`
   position: sticky;
   top: 0;
   background-color: ${(props) => props.theme.background};
+  z-index: 10;
 `
 
 export const HeaderRegion = styled.section`
