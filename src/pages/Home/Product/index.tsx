@@ -16,7 +16,7 @@ export function Product(product: IProduct) {
   const [amountToBuy, setAmountToBuy] = useState<number>(1)
   const [flippedCard, setFlippedCard] = useState<boolean>(false)
 
-  const { cartItems, addProductsToCart } = useContext(CartContext)
+  const { addProductsToCart } = useContext(CartContext)
 
   function formatCurrency(price: number) {
     if (!price || price <= 0) return 'R$ 0,00'

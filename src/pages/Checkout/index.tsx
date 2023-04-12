@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   Bank,
   CreditCard,
@@ -7,6 +8,8 @@ import {
 } from 'phosphor-react'
 import { useState } from 'react'
 import { defaultTheme } from '../../styles/themes/default'
+import { CheckoutForm } from './CheckoutForm'
+import { CheckoutFormContainer } from './CheckoutForm/styles'
 import {
   CheckoutContainer,
   FinishOrderButtonsContainer,
@@ -14,11 +17,13 @@ import {
   FinishOrderHeader,
   PaymentModeButton,
 } from './styles'
+
 enum PaymentModes {
   CartaoCredito = 'Cartão de Crédito',
   CartaoDebito = 'Cartão de Débito',
   Dinheiro = 'Dinheiro',
 }
+
 export function Checkout() {
   const [selectedPaymentMode, setSelectedPaymentMode] = useState<string>('')
 
@@ -37,6 +42,7 @@ export function Checkout() {
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </div>
           </FinishOrderHeader>
+          <CheckoutForm />
         </FinishOrderSection>
 
         <FinishOrderSection>
