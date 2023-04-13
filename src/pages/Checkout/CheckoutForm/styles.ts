@@ -11,7 +11,7 @@ export const CheckoutFormContainer = styled.form`
   input {
   }
 
-  .formRow {
+  .row {
     display: flex;
     flex-direction: row;
     gap: 0.75rem;
