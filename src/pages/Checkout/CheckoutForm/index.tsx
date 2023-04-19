@@ -10,6 +10,19 @@ import * as zod from 'zod'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
+interface AddressItem {
+  cep: string
+  logradouro: string
+  complemento: string
+  bairro: string
+  localidade: string
+  uf: string
+  ibge: string
+  gia: string
+  ddd: string
+  siafi: string
+}
+
 const deliveryValidationSchema = zod.object({
   zip: zod.string().regex(/^\d{5}-\d{3}$/, 'Por favor, forneça um CEP válido'),
   address: zod.string().nonempty('Por favor, informe o endereço'),
@@ -30,6 +43,7 @@ export function CheckoutForm() {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<DeliveryInfosFormData>({
     resolver: zodResolver(deliveryValidationSchema),
   })
@@ -38,13 +52,23 @@ export function CheckoutForm() {
     console.log(data)
   }
 
-  function getCEPInfos(event: any) {
-    console.log('rodou')
-    console.log(event.target.value)
+  async function getCEPInfos(event: React.ChangeEvent<HTMLInputElement>) {
+    const inputtedCEP = event.target.value
 
-    const cep = event // substitua pelo CEP desejado
-    console.log(event)
-    const url = `https://viacep.com.br/ws/${cep}/json/`
+    if (!errors.zip && inputtedCEP.length === 9) {
+      const cepWithoutMask = inputtedCEP.replace('-', '')
+      const url = `https://viacep.com.br/ws/${cepWithoutMask}/json/`
+
+      const response = await fetch(url)
+      const data: AddressItem = await response.json()
+
+      setValue('address', data.logradouro)
+      setValue('district', data.bairro)
+      setValue('city', data.localidade)
+      setValue('UF', data.uf)
+
+      console.log(data)
+    }
   }
 
   return (
@@ -56,6 +80,8 @@ export function CheckoutForm() {
             placeholder="CEP"
             {...register('zip')}
             hasError={!!errors.zip}
+            onChange={getCEPInfos}
+            maxLength={9}
           />
           {errors.zip && <FormFieldError>{errors.zip.message}</FormFieldError>}
         </FormGroup>
