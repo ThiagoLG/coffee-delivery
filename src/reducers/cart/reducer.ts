@@ -29,6 +29,15 @@ export function cartReducer(state: CartState, action: any): CartState {
         )
       })
     }
+    case CartActionTypes.UPDATE_PRODUCT: {
+      const currentProductIndex = state.cartItems.findIndex(
+        (cartItem) =>
+          cartItem.product.id === action.payload.cartItem.product.id,
+      )
+      return produce(state, (draft) => {
+        draft.cartItems[currentProductIndex] = action.payload.cartItem
+      })
+    }
     default:
       return {
         cartItems: [],

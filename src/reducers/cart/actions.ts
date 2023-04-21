@@ -11,11 +11,20 @@ export function insertProductAction(cartItem: ICartItem) {
   }
 }
 
-export function removeProducAction(productId: number) {
+export function removeProductAction(productId: number) {
   return {
     type: CartActionTypes.REMOVE_PRODUCT,
     payload: {
       productId,
+    },
+  }
+}
+
+export function updateProductAction(cartItem: ICartItem) {
+  return {
+    type: CartActionTypes.UPDATE_PRODUCT,
+    payload: {
+      cartItem,
     },
   }
 }

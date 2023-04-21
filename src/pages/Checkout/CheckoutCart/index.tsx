@@ -2,14 +2,34 @@ import { Trash } from 'phosphor-react'
 import { useContext } from 'react'
 import { IncreaseDecreaseButton } from '../../../components/IncreaseDecreaseButton'
 import { CartContext } from '../../../contexts/CartContext'
+import { ICartItem } from '../../../models/interfaces/ICartItem'
 import { defaultTheme } from '../../../styles/themes/default'
 import { CartItemProduct, CheckoutCartContainer } from './styles'
 
 export function CheckoutCart() {
-  const { cartItems, removeProductsFromCart } = useContext(CartContext)
+  const { cartItems, removeProductsFromCart, updateProductInCart } =
+    useContext(CartContext)
 
   function handleRemoveProduct(productId: number) {
     removeProductsFromCart(productId)
+  }
+
+  function handleDecreaseItemAction(cartItem: ICartItem) {
+    if (cartItem.amount === 1) return false
+    const cartItemtoUpdate = {
+      ...cartItem,
+      amount: cartItem.amount - 1,
+    }
+    updateProductInCart(cartItemtoUpdate)
+  }
+
+  function handleIncreaseItemAction(cartItem: ICartItem) {
+    if (cartItem.amount === 99) return false
+    const cartItemToUpdate = {
+      ...cartItem,
+      amount: cartItem.amount + 1,
+    }
+    updateProductInCart(cartItemToUpdate)
   }
 
   return (
@@ -31,7 +51,17 @@ export function CheckoutCart() {
                       {cartItem.product.name}
                     </span>
                     <div className="cartItemProduct__actions">
-                      <IncreaseDecreaseButton />
+                      <IncreaseDecreaseButton
+                        amountToBuy={cartItem.amount}
+                        increaseAmountAction={handleIncreaseItemAction.bind(
+                          null,
+                          cartItem,
+                        )}
+                        decreaseAmountAction={handleDecreaseItemAction.bind(
+                          null,
+                          cartItem,
+                        )}
+                      />
                       <button
                         className="cartItemProduct__delete"
                         type="button"
