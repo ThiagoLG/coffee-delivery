@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-vars */
+import { CartActionTypes } from '../../models/enums/CartActionTypes.enum'
 import { ICartItem } from '../../models/interfaces/ICartItem'
-
-export enum CartActionTypes {
-  INSERT_PRODUCT = 'INSERT_PRODUCT',
-  REMOVE_PRODUCT = 'REMOVE_PRODUCT',
-}
 
 export function insertProductAction(cartItem: ICartItem) {
   return {

@@ -2,6 +2,8 @@ import { IIncreaseDecreaseButtonProps } from '../../models/interfaces/IIncreaseD
 import { IncreaseDecreaseButtonContainer } from './styles'
 
 export function IncreaseDecreaseButton(props: IIncreaseDecreaseButtonProps) {
+  // const { addProductsToCart } = useContext(CartContext)
+
   return (
     <IncreaseDecreaseButtonContainer>
       <button onClick={props.decreaseAmountAction}>--</button>

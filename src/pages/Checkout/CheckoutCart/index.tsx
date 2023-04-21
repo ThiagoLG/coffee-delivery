@@ -6,12 +6,16 @@ import { defaultTheme } from '../../../styles/themes/default'
 import { CartItemProduct, CheckoutCartContainer } from './styles'
 
 export function CheckoutCart() {
-  const { cartItems } = useContext(CartContext)
+  const { cartItems, removeProductsFromCart } = useContext(CartContext)
+
+  function handleRemoveProduct(productId: number) {
+    removeProductsFromCart(productId)
+  }
 
   return (
     <CheckoutCartContainer>
       <ul className="cartProductContainer">
-        {cartItems.map((cartItem) => {
+        {cartItems?.map((cartItem) => {
           return (
             <>
               <CartItemProduct key={cartItem.product.id}>
@@ -28,7 +32,14 @@ export function CheckoutCart() {
                     </span>
                     <div className="cartItemProduct__actions">
                       <IncreaseDecreaseButton />
-                      <button className="cartItemProduct__delete" type="button">
+                      <button
+                        className="cartItemProduct__delete"
+                        type="button"
+                        onClick={handleRemoveProduct.bind(
+                          null,
+                          cartItem.product.id,
+                        )}
+                      >
                         <Trash color={defaultTheme.purple} size={16} />
                         REMOVER
                       </button>

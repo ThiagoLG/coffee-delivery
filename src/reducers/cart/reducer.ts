@@ -1,6 +1,6 @@
 import produce from 'immer'
+import { CartActionTypes } from '../../models/enums/CartActionTypes.enum'
 import { ICartItem } from '../../models/interfaces/ICartItem'
-import { CartActionTypes } from './actions'
 
 export interface CartState {
   cartItems: ICartItem[]
@@ -22,10 +22,13 @@ export function cartReducer(state: CartState, action: any): CartState {
         }
       })
     }
-    case CartActionTypes.REMOVE_PRODUCT:
-      return {
-        cartItems: [],
-      }
+    case CartActionTypes.REMOVE_PRODUCT: {
+      return produce(state, (draft) => {
+        draft.cartItems = draft.cartItems.filter(
+          (cartItem) => cartItem.product.id !== action.payload.productId,
+        )
+      })
+    }
     default:
       return {
         cartItems: [],
