@@ -1,5 +1,5 @@
 import produce from 'immer'
-import { ICartItem } from '../../models/ICartItem'
+import { ICartItem } from '../../models/interfaces/ICartItem'
 import { CartActionTypes } from './actions'
 
 export interface CartState {

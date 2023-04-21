@@ -12,7 +12,7 @@ import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
 import { Product } from './Product'
 import axios from 'axios'
-import { IProduct } from '../../models/IProductItem'
+import { IProduct } from '../../models/interfaces/IProductItem'
 import { useEffect, useState } from 'react'
 
 export function Home() {

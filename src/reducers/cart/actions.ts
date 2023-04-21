@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { ICartItem } from '../../models/ICartItem'
+import { ICartItem } from '../../models/interfaces/ICartItem'
 
 export enum CartActionTypes {
   INSERT_PRODUCT = 'INSERT_PRODUCT',
