@@ -2,7 +2,7 @@ import { ArrowUUpLeft, Info, ShoppingCartSimple } from 'phosphor-react'
 import { ChangeEvent, useContext, useState } from 'react'
 import { CartContext } from '../../../contexts/CartContext'
 import { ICartItem } from '../../../models/ICartItem'
-import { IProduct } from '../../../models/IProduct'
+import { IProduct } from '../../../models/IProductItem'
 import { defaultTheme } from '../../../styles/themes/default'
 import {
   BackProductCard,

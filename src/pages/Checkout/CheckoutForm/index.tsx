@@ -9,20 +9,8 @@ import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useEffect, useState } from 'react'
-
-interface AddressItem {
-  cep: string
-  logradouro: string
-  complemento: string
-  bairro: string
-  localidade: string
-  uf: string
-  ibge: string
-  gia: string
-  ddd: string
-  siafi: string
-}
+import { useState } from 'react'
+import { AddressItem } from '../../../models/IAddressItem'
 
 export function CheckoutForm() {
   const zipCodeRegexValidation = /^\d{5}-\d{3}$/
@@ -51,6 +39,7 @@ export function CheckoutForm() {
     register,
     handleSubmit,
     formState: { errors },
+    trigger,
     setValue,
   } = useForm<DeliveryInfosFormData>({
     resolver: zodResolver(deliveryValidationSchema),
@@ -73,6 +62,7 @@ export function CheckoutForm() {
     const zipCodeNumbersOnly = zipCodeProvided.replace(/\D/gi, '')
 
     setValue('zip', zipCodeNumbersOnly.replace(/^(\d{5})(\d{1,3})+?$/, '$1-$2'))
+    trigger('zip')
 
     if (zipCodeProvided.match(zipCodeRegexValidation))
       getAddressFromZipCode(zipCodeNumbersOnly)
@@ -93,6 +83,8 @@ export function CheckoutForm() {
     setValue('district', addressInfos?.bairro || '')
     setValue('city', addressInfos?.localidade || '')
     setValue('UF', addressInfos?.uf || '')
+
+    trigger(['address', 'district', 'city', 'UF'])
   }
 
   function clearAddressInfosToFields() {
@@ -101,6 +93,7 @@ export function CheckoutForm() {
     setValue('district', '')
     setValue('city', '')
     setValue('UF', '')
+    trigger(['address', 'district', 'city', 'UF'])
   }
   // #endregion
 
