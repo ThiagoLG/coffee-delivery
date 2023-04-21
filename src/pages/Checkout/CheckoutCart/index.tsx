@@ -1,5 +1,6 @@
 import { Trash } from 'phosphor-react'
 import { useContext } from 'react'
+import { IncreaseDecreaseButton } from '../../../components/IncreaseDecreaseButton'
 import { CartContext } from '../../../contexts/CartContext'
 import { defaultTheme } from '../../../styles/themes/default'
 import { CartItemProduct, CheckoutCartContainer } from './styles'
@@ -26,9 +27,7 @@ export function CheckoutCart() {
                       {cartItem.product.name}
                     </span>
                     <div className="cartItemProduct__actions">
-                      <button className="cartItemProduct__manage" type="button">
-                        - 1 +
-                      </button>
+                      <IncreaseDecreaseButton />
                       <button className="cartItemProduct__delete" type="button">
                         <Trash color={defaultTheme.purple} size={16} />
                         REMOVER

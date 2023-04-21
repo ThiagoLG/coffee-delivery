@@ -96,16 +96,6 @@ export function Product(product: IProduct) {
               {calculateDiscountedPrice(product.price)}
             </span>
           </section>
-          {/* <section className="buyContainer">
-            <button onClick={decreaseAmount}>--</button>
-            <input
-              type="number"
-              value={amountToBuy}
-              onChange={handleChangeProductAmount}
-              required
-            />
-            <button onClick={increaseAmount}>+</button>
-          </section> */}
           <IncreaseDecreaseButton
             increaseAmountAction={increaseAmount}
             decreaseAmountAction={decreaseAmount}

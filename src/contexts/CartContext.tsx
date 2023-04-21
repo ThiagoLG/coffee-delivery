@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useReducer } from 'react'
-import { ICartItem } from '../models/ICartItem'
+import { ICartItem } from '../models/interfaces/ICartItem'
 import { insertProductAction } from '../reducers/cart/actions'
 import { cartReducer } from '../reducers/cart/reducer'
 
@@ -7,6 +7,7 @@ interface CartContextType {
   cartItems: ICartItem[]
   addProductsToCart: (cartItem: ICartItem) => void
 }
+
 interface CartContextProviderProps {
   children: ReactNode
 }
