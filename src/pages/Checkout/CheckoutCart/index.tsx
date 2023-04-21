@@ -1,5 +1,5 @@
 import { Trash } from 'phosphor-react'
-import { useContext } from 'react'
+import { ChangeEvent, useContext } from 'react'
 import { IncreaseDecreaseButton } from '../../../components/IncreaseDecreaseButton'
 import { CartContext } from '../../../contexts/CartContext'
 import { ICartItem } from '../../../models/interfaces/ICartItem'
@@ -32,6 +32,20 @@ export function CheckoutCart() {
     updateProductInCart(cartItemToUpdate)
   }
 
+  function handleChangeItemAction(
+    cartItem: ICartItem,
+    e: ChangeEvent<HTMLInputElement>,
+  ) {
+    const newValue = e.target.valueAsNumber
+
+    if (!newValue || newValue < 1)
+      updateProductInCart({ ...cartItem, amount: 1 })
+    else if (newValue > 99) updateProductInCart({ ...cartItem, amount: 99 })
+    else {
+      updateProductInCart({ ...cartItem, amount: newValue })
+    }
+  }
+
   return (
     <CheckoutCartContainer>
       <ul className="cartProductContainer">
@@ -58,6 +72,11 @@ export function CheckoutCart() {
                           cartItem,
                         )}
                         decreaseAmountAction={handleDecreaseItemAction.bind(
+                          null,
+                          cartItem,
+                        )}
+                        key={cartItem.product.id}
+                        changeProductAmountAction={handleChangeItemAction.bind(
                           null,
                           cartItem,
                         )}
