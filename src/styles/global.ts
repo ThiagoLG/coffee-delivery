@@ -21,6 +21,7 @@ body,input,button {
 
 button {
   cursor: pointer;
+  border: 0;
 }
 
 [disabled] {

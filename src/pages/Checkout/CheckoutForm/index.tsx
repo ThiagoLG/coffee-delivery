@@ -10,7 +10,7 @@ import * as zod from 'zod'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
-import { AddressItem } from '../../../models/IAddressItem'
+import { AddressItem } from '../../../models/interfaces/IAddressItem'
 
 export function CheckoutForm() {
   const zipCodeRegexValidation = /^\d{5}-\d{3}$/

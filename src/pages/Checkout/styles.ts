@@ -2,14 +2,17 @@ import styled from 'styled-components'
 
 export const CheckoutContainer = styled.main`
   display: grid;
-  grid-template-columns: '6fr 4fr';
+  grid-template-columns: 6fr 4fr;
   gap: 0.75rem;
 
-  .finishOrderInfos {
+  .finishOrderRegion {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     width: 40rem;
+  }
+
+  .cartRegion {
   }
 `
 export const FinishOrderSection = styled.section`

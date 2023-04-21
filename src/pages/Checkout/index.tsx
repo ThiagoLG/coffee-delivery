@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import {
   Bank,
   CreditCard,
@@ -7,9 +6,10 @@ import {
   Money,
 } from 'phosphor-react'
 import { useState } from 'react'
+import { PaymentModes } from '../../models/enums/PaymentModes.enum'
 import { defaultTheme } from '../../styles/themes/default'
+import { CheckoutCart } from './CheckoutCart'
 import { CheckoutForm } from './CheckoutForm'
-import { CheckoutFormContainer } from './CheckoutForm/styles'
 import {
   CheckoutContainer,
   FinishOrderButtonsContainer,
@@ -17,12 +17,6 @@ import {
   FinishOrderHeader,
   PaymentModeButton,
 } from './styles'
-
-enum PaymentModes {
-  CartaoCredito = 'Cartão de Crédito',
-  CartaoDebito = 'Cartão de Débito',
-  Dinheiro = 'Dinheiro',
-}
 
 export function Checkout() {
   const [selectedPaymentMode, setSelectedPaymentMode] = useState<string>('')
@@ -33,7 +27,8 @@ export function Checkout() {
 
   return (
     <CheckoutContainer>
-      <section className="finishOrderInfos">
+      <section className="finishOrderRegion">
+        {/* Delivery Address Section */}
         <FinishOrderSection>
           <FinishOrderHeader>
             <MapPinLine size={22} color={defaultTheme['yellow-dark']} />
@@ -45,6 +40,7 @@ export function Checkout() {
           <CheckoutForm />
         </FinishOrderSection>
 
+        {/* Payments Sections */}
         <FinishOrderSection>
           <FinishOrderHeader>
             <CurrencyDollar size={22} color={defaultTheme.purple} />
@@ -92,6 +88,10 @@ export function Checkout() {
             </PaymentModeButton>
           </FinishOrderButtonsContainer>
         </FinishOrderSection>
+      </section>
+
+      <section className="cartRegion">
+        <CheckoutCart></CheckoutCart>
       </section>
     </CheckoutContainer>
   )
