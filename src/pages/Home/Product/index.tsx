@@ -1,8 +1,9 @@
 import { ArrowUUpLeft, Info, ShoppingCartSimple } from 'phosphor-react'
 import { ChangeEvent, useContext, useState } from 'react'
+import { IncreaseDecreaseButton } from '../../../components/IncreaseDecreaseButton'
 import { CartContext } from '../../../contexts/CartContext'
-import { ICartItem } from '../../../models/ICartItem'
-import { IProduct } from '../../../models/IProductItem'
+import { ICartItem } from '../../../models/interfaces/ICartItem'
+import { IProduct } from '../../../models/interfaces/IProductItem'
 import { defaultTheme } from '../../../styles/themes/default'
 import {
   BackProductCard,
@@ -95,7 +96,7 @@ export function Product(product: IProduct) {
               {calculateDiscountedPrice(product.price)}
             </span>
           </section>
-          <section className="buyContainer">
+          {/* <section className="buyContainer">
             <button onClick={decreaseAmount}>--</button>
             <input
               type="number"
@@ -104,7 +105,13 @@ export function Product(product: IProduct) {
               required
             />
             <button onClick={increaseAmount}>+</button>
-          </section>
+          </section> */}
+          <IncreaseDecreaseButton
+            increaseAmountAction={increaseAmount}
+            decreaseAmountAction={decreaseAmount}
+            amountToBuy={amountToBuy}
+            changeProductAmountAction={handleChangeProductAmount}
+          />
           <button className="cartButton" onClick={handleAddToCart}>
             <ShoppingCartSimple size={22} color="white" weight="fill" />
           </button>
