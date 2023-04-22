@@ -1,4 +1,5 @@
 import produce from 'immer'
+import { calculateDiscountedPrice } from '../../lib/utils'
 import { CartActionTypes } from '../../models/enums/CartActionTypes.enum'
 import { ICartItem } from '../../models/interfaces/ICartItem'
 
@@ -15,8 +16,15 @@ export function cartReducer(state: CartState, action: any): CartState {
       )
 
       return produce(state, (draft) => {
+        const discountedPrice = calculateDiscountedPrice(
+          action.payload.cartItem.product,
+        )
+
         if (currentProductIndex === -1) {
-          draft.cartItems.push(action.payload.cartItem)
+          draft.cartItems.push({
+            ...action.payload.cartItem,
+            totalPrice: discountedPrice * action.payload.cartItem.amount,
+          })
         } else {
           draft.cartItems[currentProductIndex] = action.payload.cartItem
         }
@@ -34,8 +42,14 @@ export function cartReducer(state: CartState, action: any): CartState {
         (cartItem) =>
           cartItem.product.id === action.payload.cartItem.product.id,
       )
+      const discountedPrice = calculateDiscountedPrice(
+        action.payload.cartItem.product,
+      )
       return produce(state, (draft) => {
-        draft.cartItems[currentProductIndex] = action.payload.cartItem
+        draft.cartItems[currentProductIndex] = {
+          ...action.payload.cartItem,
+          totalPrice: discountedPrice * action.payload.cartItem.amount,
+        }
       })
     }
     default:

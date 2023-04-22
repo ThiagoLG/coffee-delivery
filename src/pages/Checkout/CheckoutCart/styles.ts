@@ -26,15 +26,15 @@ export const CartItemProduct = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
   padding: 0.5rem 0.25rem;
 
   .cartItemProduct__info {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
     padding: 0;
     gap: 1.25rem;
+    flex: 1;
 
     .cartItemProduct__image {
       width: 4rem;
@@ -57,22 +57,35 @@ export const CartItemProduct = styled.li`
         display: flex;
         gap: 0.5rem;
 
+        > * {
+          height: 2rem;
+        }
+
         .cartItemProduct__delete {
           display: flex;
-          gap: 0.5rem;
+          gap: 0.25rem;
           align-items: center;
           background-color: ${(props) => props.theme['gray-300']};
+          color: ${(props) => props.theme['gray-600']};
           border-radius: 6px;
           padding: 0.5rem;
+          font-size: 0.75rem;
         }
       }
+    }
 
-      .cartItemProduct__prices {
-        .cartItemProduct__currentPrice {
-          font-weight: 700;
-          font-size: 1rem;
-          color: ${(props) => props.theme['gray-600']};
-        }
+    .cartItemProduct__prices {
+      text-align: right;
+
+      .cartItemProduct__currentPrice {
+        font-weight: 700;
+        font-size: 1rem;
+        color: ${(props) => props.theme['gray-600']};
+      }
+
+      .cartItemProduct__originalPrice {
+        font-size: 0.75rem;
+        color: ${(props) => props.theme['gray-500']};
       }
     }
   }

@@ -3,6 +3,10 @@ import { ChangeEvent, useContext } from 'react'
 import { IncreaseDecreaseButton } from '../../../components/IncreaseDecreaseButton'
 import { CartContext } from '../../../contexts/CartContext'
 import { ICartItem } from '../../../models/interfaces/ICartItem'
+import {
+  calculateAndFormatDiscountedPrice,
+  formatCurrency,
+} from '../../../lib/utils'
 import { defaultTheme } from '../../../styles/themes/default'
 import { CartItemProduct, CheckoutCartContainer } from './styles'
 
@@ -95,9 +99,19 @@ export function CheckoutCart() {
                     </div>
                   </div>
                   <div className="cartItemProduct__prices">
-                    <span className="cartItemProduct__currentPrice">
-                      R$ {cartItem.product.price}
-                    </span>
+                    <div className="cartItemProduct__currentPrice">
+                      <span className="cartItemProduct__currencySymbol">
+                        R$
+                      </span>{' '}
+                      {formatCurrency(cartItem.totalPrice)}
+                    </div>
+                    <div className="cartItemProduct__originalPrice">
+                      un.{' '}
+                      <span className="cartItemProduct__currencySymbol">
+                        R$
+                      </span>{' '}
+                      {calculateAndFormatDiscountedPrice(cartItem.product)}
+                    </div>
                   </div>
                 </div>
               </CartItemProduct>
