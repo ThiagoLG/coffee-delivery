@@ -8,7 +8,7 @@ import {
   formatCurrency,
 } from '../../../lib/utils'
 import { defaultTheme } from '../../../styles/themes/default'
-import { CartItemProduct, CheckoutCartContainer } from './styles'
+import { CartItemProduct, CartSummary, CheckoutCartContainer } from './styles'
 
 export function CheckoutCart() {
   const { cartItems, removeProductsFromCart, updateProductInCart } =
@@ -120,6 +120,20 @@ export function CheckoutCart() {
           )
         })}
       </ul>
+      <CartSummary>
+        <div className="cartSummary__totalItems">
+          <span>Total de Itens</span>
+          <span>R$ 29,70</span>
+        </div>
+        <div className="cartSummary__delivery">
+          <span>Entrega</span>
+          <span>R$ 3,50</span>
+        </div>
+        <div className="cartSummary__totalOrder">
+          <span>Total</span>
+          <span>R$ 33,20</span>
+        </div>
+      </CartSummary>
     </CheckoutCartContainer>
   )
 }

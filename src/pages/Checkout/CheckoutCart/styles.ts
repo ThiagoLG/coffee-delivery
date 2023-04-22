@@ -90,3 +90,25 @@ export const CartItemProduct = styled.li`
     }
   }
 `
+
+export const CartSummary = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .cartSummary__totalItems,
+  .cartSummary__delivery {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: ${(props) => props.theme['gray-600']};
+  }
+
+  .cartSummary__totalOrder {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: ${(props) => props.theme['gray-700']};
+  }
+`
