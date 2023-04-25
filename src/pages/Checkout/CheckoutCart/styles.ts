@@ -97,7 +97,8 @@ export const CartSummary = styled.section`
   gap: 0.75rem;
 
   .cartSummary__totalItems,
-  .cartSummary__delivery {
+  .cartSummary__delivery,
+  .cartSummary__discount {
     display: flex;
     justify-content: space-between;
     font-size: 0.875rem;

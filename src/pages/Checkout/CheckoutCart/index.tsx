@@ -11,8 +11,12 @@ import { defaultTheme } from '../../../styles/themes/default'
 import { CartItemProduct, CartSummary, CheckoutCartContainer } from './styles'
 
 export function CheckoutCart() {
-  const { cartItems, removeProductsFromCart, updateProductInCart } =
-    useContext(CartContext)
+  const {
+    cartItems,
+    removeProductsFromCart,
+    updateProductInCart,
+    cartSummary,
+  } = useContext(CartContext)
 
   function handleRemoveProduct(productId: number) {
     removeProductsFromCart(productId)
@@ -123,15 +127,21 @@ export function CheckoutCart() {
       <CartSummary>
         <div className="cartSummary__totalItems">
           <span>Total de Itens</span>
-          <span>R$ 29,70</span>
+          <span>R$ {formatCurrency(cartSummary.totalItemsPrice)}</span>
         </div>
         <div className="cartSummary__delivery">
           <span>Entrega</span>
-          <span>R$ 3,50</span>
+          <span>R$ {formatCurrency(cartSummary.deliveryPrice)}</span>
         </div>
+        {cartSummary.discount !== 0 && (
+          <div className="cartSummary__discount">
+            <span>Desconto</span>
+            <span>- R$ {formatCurrency(cartSummary.discount)}</span>
+          </div>
+        )}
         <div className="cartSummary__totalOrder">
           <span>Total</span>
-          <span>R$ 33,20</span>
+          <span>R$ {formatCurrency(cartSummary.subTotal)}</span>
         </div>
       </CartSummary>
     </CheckoutCartContainer>
