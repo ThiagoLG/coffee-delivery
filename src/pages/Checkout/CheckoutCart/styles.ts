@@ -20,6 +20,20 @@ export const CheckoutCartContainer = styled.section`
       opacity: 0.2;
     }
   }
+
+  button[type='submit'] {
+    background-color: ${(props) => props.theme.yellow};
+    padding: 0.75rem 0.5rem;
+    width: 100%;
+    border-radius: 6px;
+
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 160%;
+    text-transform: uppercase;
+    color: ${(props) => props.theme.white};
+    font-stretch: 100;
+  }
 `
 
 export const CartItemProduct = styled.li`

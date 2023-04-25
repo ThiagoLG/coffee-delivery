@@ -54,6 +54,13 @@ export function CheckoutCart() {
     }
   }
 
+  function handleSubmitOrder() {
+    const $formElement = document.getElementById(
+      'delivery-form',
+    ) as HTMLFormElement
+    $formElement.requestSubmit()
+  }
+
   return (
     <CheckoutCartContainer>
       <ul className="cartProductContainer">
@@ -144,6 +151,9 @@ export function CheckoutCart() {
           <span>R$ {formatCurrency(cartSummary.subTotal)}</span>
         </div>
       </CartSummary>
+      <button type="submit" onClick={handleSubmitOrder}>
+        Confirmar Pedido
+      </button>
     </CheckoutCartContainer>
   )
 }

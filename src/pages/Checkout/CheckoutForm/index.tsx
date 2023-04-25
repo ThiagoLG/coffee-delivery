@@ -98,7 +98,10 @@ export function CheckoutForm() {
   // #endregion
 
   return (
-    <CheckoutFormContainer onSubmit={handleSubmit(handleSubmitForm)}>
+    <CheckoutFormContainer
+      id="delivery-form"
+      onSubmit={handleSubmit(handleSubmitForm)}
+    >
       <div className="row">
         <FormGroup width={4}>
           <FormInput
@@ -192,7 +195,6 @@ export function CheckoutForm() {
           {errors.UF && <FormFieldError>{errors.UF.message}</FormFieldError>}
         </FormGroup>
       </div>
-      <button type="submit">Submit</button>
     </CheckoutFormContainer>
   )
 }
